@@ -43,7 +43,7 @@ pipeline {
                     /*-Dsonar.projectName=$JOB_NAME \
                     -Dsonar.projectKey=$JOB_NAME \
                     -Dsonar.host.url=http://65.1.148.43:9000 \
-                    -Dsonar.login=$sonar_token'*/
+                    -Dsonar.login=$git_token'*/
                     -Dsonar.projectKey=project-02 \
                     -Dsonar.host.url=http://65.1.148.43:9000 \
                     -Dsonar.login=699ac8617a116302cc6722071c38c354942bb03c'
