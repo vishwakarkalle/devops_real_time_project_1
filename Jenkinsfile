@@ -38,11 +38,12 @@ pipeline {
             environment {
                sonar_token = credentials('SONAR_TOKEN')
             }
+            
             steps {
                 sh 'mvn sonar:sonar \
                     -Dsonar.projectKey=project-02 \
                     -Dsonar.host.url=http://65.1.148.43:9000 \
-                    -Dsonar.login=699ac8617a116302cc6722071c38c354942bb03c'
+                    -Dsonar.login=$sonar_token'
             }
         } 
         
