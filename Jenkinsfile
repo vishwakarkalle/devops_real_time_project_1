@@ -43,7 +43,7 @@ pipeline {
                     -Dsonar.projectName=$JOB_NAME \
                     -Dsonar.projectKey=$JOB_NAME \
                     -Dsonar.host.url=http://65.1.148.43:9000 \
-                    -Dsonar.token=$sonar_token'
+                    -Dsonar.login=$sonar_token'
             }
         } 
         
