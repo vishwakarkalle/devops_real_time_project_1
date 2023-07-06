@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      PATH = "$PATH:/opt/apache-maven-3.9.1/bin"
+      PATH = "$PATH:/opt/apache-maven-3.9.3/bin"
     }
     
     stages {
@@ -14,7 +14,7 @@ pipeline {
 
         stage('CODE CHECKOUT') {
             steps {
-                git 'https://github.com/vishwakarkalle/devops_real_time_project_1.git'
+                git 'https://github.com/ujnvdprasad/devops_real_time_project_1.git'
             }
         }
         
@@ -36,9 +36,8 @@ pipeline {
         
         stage('SONAR SCANNER') {
             environment {
-               sonar_token = credentials('SONAR_TOKEN')
+            sonar_token = credentials('SONAR_TOKEN')
             }
-            
             steps {
                 sh 'mvn sonar:sonar -Dsonar.projectName=$JOB_NAME \
                     -Dsonar.projectKey=$JOB_NAME \
@@ -52,7 +51,7 @@ pipeline {
                 sh 'ansible-playbook playbooks/create_directory.yml'
             }
         }
-        
+
         stage('PUSH IMAGE ON DOCKERHUB') {
             environment {
             dockerhub_user = credentials('DOCKERHUB_USER')            
@@ -66,13 +65,13 @@ pipeline {
                     --extra-vars "dockerhub_pass=$dockerhub_pass"'              
             }
         }
-        
+
         stage('DEPLOYMENT ON EKS') {
             steps {
                 sh 'ansible-playbook playbooks/create_pod_on_eks.yml \
                     --extra-vars "JOB_NAME=$JOB_NAME"'
             }            
-        }          
-
+        }
+        
     }
-}      
+}
