@@ -14,7 +14,7 @@ pipeline {
 
         stage('CODE CHECKOUT') {
             steps {
-                git 'https://github.com/ujnvdprasad/devops_real_time_project_1.git'
+                git 'https://github.com/vishwakarkalle/devops_real_time_project_1.git'
             }
         }
         
