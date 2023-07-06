@@ -14,7 +14,7 @@ pipeline {
 
         stage('CODE CHECKOUT') {
             steps {
-                git 'https://github.com/sunnydevops2022/devops_real_time_project_1.git'
+                git 'https://github.com/vishwakarkalle/devops_real_time_project_1.git'
             }
         }
         
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh 'mvn sonar:sonar \
                     -Dsonar.projectKey=project-02 \
-                    -Dsonar.host.url=http://65.1.148.43:9000 \
+                    -Dsonar.host.url=http://13.232.15.36:9000 \
                     -Dsonar.login=$sonar_token */'
             }
         } 
